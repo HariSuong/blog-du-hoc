@@ -53,7 +53,7 @@ export function DeleteCommentButton({
           <div className="w-full max-w-sm rounded-lg border border-border bg-white p-6 shadow-lg">
             <h2
               id="delete-comment-title"
-              className="font-serif text-lg text-ink"
+              className="font-serif text-lg font-bold tracking-normal text-ink"
             >
               Xóa bình luận?
             </h2>

@@ -150,7 +150,7 @@ export function CoverImageField({ existingUrl }: CoverImageFieldProps) {
       {preview ? (
         <label
           htmlFor={inputId}
-          className="mt-2 inline-block cursor-pointer text-sm text-sage transition-opacity hover:opacity-80"
+          className="mt-2 inline-block cursor-pointer text-sm text-sage-deep transition-opacity hover:opacity-80"
         >
           Đổi ảnh khác
         </label>

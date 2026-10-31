@@ -30,15 +30,17 @@ export function CommentsSection({
 
   return (
     <section className="mt-12 border-t border-border pt-10" aria-label="Bình luận">
-      <h2 className="font-serif text-2xl text-ink">
+      <h2 className="font-serif text-2xl font-bold tracking-normal text-ink">
         Bình luận{" "}
-        <span className="text-lg font-sans font-normal text-muted">
+        <span className="font-sans text-lg font-light text-muted">
           ({comments.length})
         </span>
       </h2>
 
-      <div className="mt-6 rounded-lg border border-border bg-white px-4 py-5 sm:px-5">
-        <h3 className="mb-4 text-sm font-medium text-ink">Để lại lời nhắn</h3>
+      <div className="mt-6 rounded-lg border border-border bg-white px-4 py-5 font-sans sm:px-5">
+        <h3 className="mb-4 font-sans text-sm font-medium text-ink">
+          Để lại lời nhắn
+        </h3>
         <CommentForm
           postId={postId}
           postSlug={postSlug}
@@ -47,7 +49,7 @@ export function CommentsSection({
       </div>
 
       {tree.length === 0 ? (
-        <p className="mt-8 text-center text-sm text-muted">
+        <p className="mt-8 text-center font-sans text-sm font-light leading-relaxed text-muted">
           Chưa có bình luận nào. Hãy là người đầu tiên chia sẻ.
         </p>
       ) : (

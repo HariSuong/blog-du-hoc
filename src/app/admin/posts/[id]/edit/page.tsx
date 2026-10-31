@@ -62,7 +62,7 @@ async function EditPostForm({ id }: { id: string }) {
             ← Quay lại quản trị
           </Link>
         </p>
-        <h1 className="mt-2 font-serif text-3xl tracking-tight text-ink">
+        <h1 className="mt-2 font-serif text-3xl font-bold tracking-normal text-ink">
           Chỉnh sửa bài viết
         </h1>
         <p className="mt-1 truncate text-sm text-muted">

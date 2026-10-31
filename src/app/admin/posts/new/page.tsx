@@ -28,7 +28,7 @@ export default function NewPostPage() {
             ← Quay lại quản trị
           </Link>
         </p>
-        <h1 className="mt-2 font-serif text-3xl tracking-tight text-ink">
+        <h1 className="mt-2 font-serif text-3xl font-bold tracking-normal text-ink">
           Viết bài mới
         </h1>
         <p className="mt-1 text-sm text-muted">

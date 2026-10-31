@@ -1,4 +1,4 @@
-import { MessagesSquare, Pencil, Plus } from "lucide-react";
+import { BookOpen, MessagesSquare, Pencil, Plus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { DeletePostButton } from "@/components/admin/delete-post-button";
@@ -54,7 +54,7 @@ export default async function AdminDashboardPage() {
               Little Journal
             </Link>
           </p>
-          <h1 className="mt-1 font-serif text-3xl tracking-tight text-ink">
+          <h1 className="mt-1 font-serif text-3xl font-bold tracking-normal text-ink">
             Quản trị
           </h1>
         </div>
@@ -66,14 +66,21 @@ export default async function AdminDashboardPage() {
             <MessagesSquare className="size-4" aria-hidden />
             Bình luận
             {totalComments > 0 ? (
-              <span className="rounded-full bg-sage/15 px-1.5 py-0.5 text-xs font-medium text-sage">
+              <span className="rounded-full bg-sage px-1.5 py-0.5 text-xs font-medium text-ink">
                 {totalComments}
               </span>
             ) : null}
           </Link>
           <Link
+            href="/admin/ebooks"
+            className="inline-flex items-center gap-1.5 rounded-md border border-border bg-white px-3 py-2.5 text-sm text-muted transition-colors hover:text-ink"
+          >
+            <BookOpen className="size-4" aria-hidden />
+            Ebooks
+          </Link>
+          <Link
             href="/admin/posts/new"
-            className="inline-flex items-center gap-1.5 rounded-md bg-sage px-4 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+            className="inline-flex items-center gap-1.5 rounded-md bg-cta px-4 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-85"
           >
             <Plus className="size-4" aria-hidden />
             Viết bài mới
@@ -84,13 +91,13 @@ export default async function AdminDashboardPage() {
 
       {posts.length === 0 ? (
         <div className="rounded-lg border border-dashed border-border bg-white/60 px-6 py-14 text-center">
-          <p className="font-serif text-xl text-ink">Chưa có bài viết nào</p>
+          <p className="font-serif text-xl font-bold tracking-normal text-ink">Chưa có bài viết nào</p>
           <p className="mt-2 text-sm text-muted">
             Hãy bắt đầu bằng vài dòng đầu tiên.
           </p>
           <Link
             href="/admin/posts/new"
-            className="mt-6 inline-flex items-center gap-1.5 rounded-md bg-sage px-4 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+            className="mt-6 inline-flex items-center gap-1.5 rounded-md bg-cta px-4 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-85"
           >
             <Plus className="size-4" aria-hidden />
             Viết bài mới
@@ -106,7 +113,7 @@ export default async function AdminDashboardPage() {
                 key={post.id}
                 className="flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:gap-5"
               >
-                <div className="relative size-16 shrink-0 overflow-hidden rounded-md bg-background sm:size-14">
+                <div className="relative size-16 shrink-0 overflow-hidden rounded-md bg-sage sm:size-14">
                   {post.cover_image_url ? (
                     <Image
                       src={post.cover_image_url}
@@ -116,14 +123,14 @@ export default async function AdminDashboardPage() {
                       sizes="64px"
                     />
                   ) : (
-                    <div className="flex size-full items-center justify-center text-xs text-muted/50">
+                    <div className="flex size-full items-center justify-center text-xs text-ink/40">
                       —
                     </div>
                   )}
                 </div>
 
                 <div className="min-w-0 flex-1">
-                  <h2 className="truncate font-serif text-lg text-ink">
+                  <h2 className="truncate font-serif text-lg font-bold tracking-normal text-ink">
                     {post.title || "Không tiêu đề"}
                   </h2>
                   <div className="mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">

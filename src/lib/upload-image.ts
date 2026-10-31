@@ -21,7 +21,7 @@ export async function uploadBlogImage(
   }
 
   const ext = file.name.split(".").pop()?.toLowerCase() || "jpg";
-  const path = `${folder}/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
+  const path = `${folder}/${crypto.randomUUID()}.${ext}`;
 
   const { error } = await supabase.storage
     .from(BLOG_IMAGES_BUCKET)

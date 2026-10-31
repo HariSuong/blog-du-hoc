@@ -11,6 +11,7 @@ import { uploadBlogImage } from "@/lib/upload-image";
 function revalidatePosts(slug?: string) {
   revalidateTag("posts", "max");
   revalidatePath("/");
+  revalidatePath("/blog");
   revalidatePath("/admin");
   if (slug) {
     revalidateTag(`post-${slug}`, "max");

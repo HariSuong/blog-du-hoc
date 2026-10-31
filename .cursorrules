@@ -1,26 +1,33 @@
 # Little Journal — Cursor Project Rules
 
 ## Tech Stack & Architecture
-- Framework: Next.js 14+ (App Router), TypeScript, React 18+.
-- Styling: Tailwind CSS, Lucide React (icons).
+- Framework: Next.js 14+ / Next.js 15+ (App Router), TypeScript, React 19/18.
+- Styling: Tailwind CSS, Lucide React (icons), @tailwindcss/typography.
 - Backend & Auth: Supabase (PostgreSQL, Supabase Auth via `@supabase/ssr`, Supabase Storage).
 - Deployment Target: Vercel.
 
 ## Core Rules & Conventions
 1. **Next.js App Router**:
-   - Ưu tiên Server Components (`page.tsx`) cho việc fetch dữ liệu công khai để tối ưu SEO và tốc độ tải.
-   - Chỉ dùng `'use client'` khi có tương tác người dùng (forms, buttons, state).
-2. **Supabase Client Setup**:
-   - Sử dụng `@supabase/ssr` để tạo `createBrowserClient` và `createServerClient`.
-   - Bắt buộc kiểm tra quyền qua `middleware.ts` cho tất cả các route bắt đầu bằng `/admin` (ngoại trừ `/admin/login`).
-3. **Database & Storage**:
-   - Bảng `posts`: `id`, `title`, `slug`, `excerpt`, `content`, `cover_image_url`, `created_at`, `updated_at`.
-   - Bảng `comments`: `id`, `post_id`, `parent_id`, `author_name`, `author_email`, `content`, `created_at`.
-   - Bucket Storage: `blog-images` (public read, authenticated insert).
-4. **UI/UX Aesthetics**:
-   - Tông màu: Nền chính `#FAF7F0` (Cream), text chính `#1E293B` (Slate-800), text phụ `#64748B`, viền `#E7E5E4`, điểm nhấn `#A3B18A` (Sage).
-   - Font: Serif cho tiêu đề bài viết, Sans-serif thoáng mắt cho nội dung đọc (`leading-relaxed`, giữ ngắt đoạn `whitespace-pre-line`).
-5. **Code Quality**:
-   - Không hardcode Supabase Secret Key ở client.
-   - Xử lý kỹ các trạng thái: Loading (Skeleton), Empty State, Error Message bằng tiếng Việt nhẹ nhàng, tinh tế.
-
+  - Ưu tiên Server Components (`page.tsx`) cho việc fetch dữ liệu công khai để tối ưu SEO và tốc độ tải.
+  - Sử dụng Server Actions cho các thao tác CRUD bài viết, comment, upload ebook.
+  - Route structure:
+    - `/`: Trang chủ (Hero 2 cột + Latest Journal Entries 3 cột).
+    - `/blog`: Danh sách toàn bộ bài viết.
+    - `/posts/[slug]`: Chi tiết bài viết (rộng rãi max-w-4xl/5xl, author box, comments, recent posts).
+    - `/ebooks` (hoặc `/destinations`): Bộ sưu tập tài liệu / Ebook kèm nút tải trực tiếp.
+    - `/contact`: Trang liên hệ 2 cột (ảnh cá nhân + link social).
+    - `/admin`: Dashboard quản trị (Posts, Comments, Ebooks).
+2. **Supabase Database & Buckets**:
+  - Tables: `posts`, `comments`, `ebooks`.
+  - Storage Buckets: `blog-images` (ảnh bài viết), `blog-files` (file PDF ebook).
+  - Bắt buộc kiểm tra RLS: Cho phép Public đọc, chỉ `authenticated` mới được Thêm / Sửa / Xóa dữ liệu quản trị.
+3. **UI/UX Aesthetics**:
+  - Phong cách: **Editorial Travel / Magazine Style** (Ảnh to, typography phóng khoáng, tiêu đề Serif ấn tượng).
+  - Tông màu chủ đạo:
+    - Khối nền nhấn / Card background: `#D1E1D6` (Sage Green nhạt).
+    - Nền chính trang: Trắng `#FFFFFF` hoặc Off-white `#F9FAF9`.
+    - Chữ chính: `#111827` (Gray-900 / Đen tương phản cao).
+    - Nút bấm chính / CTA: Màu đen `#000000` chữ trắng bo nhẹ.
+4. **Code Quality**:
+  - Không hardcode secret keys ở client.
+  - Luôn xử lý các trường hợp rỗng (Empty state), skeleton loading và hiển thị thông báo lỗi thân thiện.

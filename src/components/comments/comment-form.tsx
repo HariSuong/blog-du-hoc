@@ -45,7 +45,7 @@ export function CommentForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3">
+    <form onSubmit={handleSubmit} className="space-y-3 font-sans">
       <input type="hidden" name="post_id" value={postId} />
       <input type="hidden" name="post_slug" value={postSlug} />
       <input type="hidden" name="parent_id" value={parentId ?? ""} />
@@ -60,7 +60,7 @@ export function CommentForm({
               <button
                 type="button"
                 onClick={onCancelReply}
-                className="text-sage hover:opacity-80"
+                className="text-sage-deep hover:opacity-80"
               >
                 Hủy
               </button>
@@ -121,7 +121,7 @@ export function CommentForm({
           rows={compact ? 3 : 4}
           maxLength={2000}
           placeholder="Viết vài dòng chia sẻ…"
-          className="w-full resize-y rounded-md border border-border bg-white px-3 py-2 text-sm leading-relaxed text-ink outline-none focus:border-sage focus:ring-2 focus:ring-sage/25 disabled:opacity-60"
+          className="w-full resize-y rounded-md border border-border bg-white px-3 py-2 text-sm font-light leading-relaxed text-ink outline-none focus:border-sage focus:ring-2 focus:ring-sage/25 disabled:opacity-60"
         />
       </div>
 
@@ -134,7 +134,7 @@ export function CommentForm({
       <button
         type="submit"
         disabled={pending}
-        className="inline-flex items-center gap-2 rounded-md bg-sage px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-70"
+        className="inline-flex items-center gap-2 rounded-md bg-cta px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-70"
       >
         {pending ? (
           <>

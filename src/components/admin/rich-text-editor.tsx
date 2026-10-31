@@ -66,7 +66,7 @@ export function RichTextEditor({
         openOnClick: false,
         autolink: true,
         HTMLAttributes: {
-          class: "text-sage underline underline-offset-2",
+          class: "text-sage-deep underline underline-offset-2",
           rel: "noopener noreferrer",
           target: "_blank",
         },

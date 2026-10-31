@@ -76,7 +76,7 @@ export function LinkPopover({
             </button>
             <button
               type="submit"
-              className="rounded-md bg-sage px-2.5 py-1 text-xs font-medium text-white hover:opacity-90"
+              className="rounded-md bg-cta px-2.5 py-1 text-xs font-medium text-white hover:opacity-90"
             >
               Áp dụng
             </button>

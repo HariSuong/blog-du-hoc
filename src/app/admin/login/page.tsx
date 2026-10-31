@@ -12,7 +12,7 @@ export default function AdminLoginPage() {
         <div className="text-center">
           <Link
             href="/"
-            className="font-serif text-2xl tracking-tight text-ink transition-opacity hover:opacity-70"
+            className="font-serif text-2xl font-bold tracking-normal text-ink transition-opacity hover:opacity-70"
           >
             Little Journal
           </Link>
@@ -20,7 +20,7 @@ export default function AdminLoginPage() {
         </div>
 
         <div className="mt-10 rounded-lg border border-border bg-white px-6 py-8 shadow-sm shadow-stone-200/40">
-          <h1 className="font-serif text-xl text-ink">Đăng nhập</h1>
+          <h1 className="font-serif text-xl font-bold tracking-normal text-ink">Đăng nhập</h1>
           <LoginForm />
         </div>
       </div>

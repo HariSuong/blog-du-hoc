@@ -61,8 +61,8 @@ export default async function AdminCommentsPage() {
               Quản trị
             </Link>
           </p>
-          <h1 className="mt-1 flex items-center gap-2 font-serif text-3xl tracking-tight text-ink">
-            <MessagesSquare className="size-7 text-sage" aria-hidden />
+          <h1 className="mt-1 flex items-center gap-2 font-serif text-3xl font-bold tracking-normal text-ink">
+            <MessagesSquare className="size-7 text-sage-deep" aria-hidden />
             Bình luận
           </h1>
           <p className="mt-1 text-sm text-muted">
@@ -74,7 +74,7 @@ export default async function AdminCommentsPage() {
 
       {comments.length === 0 ? (
         <div className="rounded-lg border border-dashed border-border bg-white/60 px-6 py-14 text-center">
-          <p className="font-serif text-xl text-ink">Chưa có bình luận nào</p>
+          <p className="font-serif text-xl font-bold tracking-normal text-ink">Chưa có bình luận nào</p>
           <p className="mt-2 text-sm text-muted">
             Khi độc giả để lại lời nhắn, chúng sẽ hiện ở đây.
           </p>

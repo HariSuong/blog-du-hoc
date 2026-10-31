@@ -68,7 +68,7 @@ export function PostForm({ mode, post, action }: PostFormProps) {
           defaultValue={post?.title ?? ""}
           disabled={pending}
           placeholder="Để trống sẽ thành “Không tiêu đề”"
-          className="w-full rounded-md border border-border bg-white px-3.5 py-2.5 font-serif text-lg text-ink outline-none transition-shadow placeholder:font-sans placeholder:text-sm placeholder:text-muted/60 focus:border-sage focus:ring-2 focus:ring-sage/25 disabled:opacity-60"
+          className="w-full rounded-md border border-border bg-white px-3.5 py-2.5 font-serif text-lg font-bold tracking-normal text-ink outline-none transition-shadow placeholder:font-sans placeholder:text-sm placeholder:font-light placeholder:text-muted/60 focus:border-sage focus:ring-2 focus:ring-sage/25 disabled:opacity-60"
         />
       </div>
 
@@ -108,7 +108,7 @@ export function PostForm({ mode, post, action }: PostFormProps) {
         <button
           type="submit"
           disabled={pending}
-          className="inline-flex items-center justify-center gap-2 rounded-md bg-sage px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
+          className="inline-flex items-center justify-center gap-2 rounded-md bg-cta px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
         >
           {pending ? (
             <>

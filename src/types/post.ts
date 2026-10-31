@@ -12,4 +12,6 @@ export type Post = {
 export type PostListItem = Pick<
   Post,
   "id" | "title" | "slug" | "excerpt" | "cover_image_url" | "created_at"
->;
+> & {
+  content?: string | null;
+};

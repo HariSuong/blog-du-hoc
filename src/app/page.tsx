@@ -1,13 +1,14 @@
 import { cacheTag } from "next/cache";
 import { Suspense } from "react";
 import { EmptyState } from "@/components/empty-state";
+import { HeroSection } from "@/components/hero-section";
 import { PostCard } from "@/components/post-card";
 import { PostListSkeleton } from "@/components/post-list-skeleton";
-import { SiteHeader } from "@/components/site-header";
+import { SiteShell } from "@/components/site-shell";
 import { createPublicClient } from "@/lib/supabase/public";
 import type { PostListItem } from "@/types/post";
 
-async function getPosts(): Promise<PostListItem[]> {
+async function getLatestPosts(): Promise<PostListItem[]> {
   "use cache";
   cacheTag("posts");
 
@@ -15,49 +16,54 @@ async function getPosts(): Promise<PostListItem[]> {
 
   const { data, error } = await supabase
     .from("posts")
-    .select("id, title, slug, excerpt, cover_image_url, created_at")
-    .order("created_at", { ascending: false });
+    .select("id, title, slug, excerpt, cover_image_url, created_at, content")
+    .order("created_at", { ascending: false })
+    .limit(3);
 
   if (error) {
-    console.error("Không thể tải danh sách bài viết:", error.message);
+    console.error("Không thể tải bài viết mới nhất:", error.message);
     return [];
   }
 
   return data ?? [];
 }
 
-async function PostList() {
-  const posts = await getPosts();
+async function LatestEntries() {
+  const posts = await getLatestPosts();
 
   if (posts.length === 0) {
-    return <EmptyState />;
+    return (
+      <EmptyState
+        title="Chưa có journal entry nào"
+        description="Những trang đầu tiên của hành trình sẽ sớm xuất hiện tại đây."
+      />
+    );
   }
 
   return (
-    <section aria-label="Danh sách bài viết">
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {posts.map((post) => (
         <PostCard key={post.id} post={post} />
       ))}
-    </section>
+    </div>
   );
 }
 
 export default function HomePage() {
   return (
-    <div className="flex flex-1 flex-col">
-      <main className="mx-auto w-full max-w-2xl flex-1 px-5 py-12 sm:px-6 sm:py-16">
-        <SiteHeader />
+    <SiteShell>
+      <HeroSection />
 
-        <Suspense fallback={<PostListSkeleton />}>
-          <PostList />
-        </Suspense>
-      </main>
-
-      <footer className="mx-auto w-full max-w-2xl px-5 pb-10 pt-4 sm:px-6">
-        <p className="text-center text-xs text-muted/70">
-          Little Journal — viết chậm, giữ lại những điều nhỏ.
-        </p>
-      </footer>
-    </div>
+      <section className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-6 sm:py-20">
+        <h2 className="text-center font-serif text-3xl font-bold tracking-normal text-ink sm:text-4xl lg:text-5xl">
+          Latest Journal Entries
+        </h2>
+        <div className="mt-10">
+          <Suspense fallback={<PostListSkeleton />}>
+            <LatestEntries />
+          </Suspense>
+        </div>
+      </section>
+    </SiteShell>
   );
 }

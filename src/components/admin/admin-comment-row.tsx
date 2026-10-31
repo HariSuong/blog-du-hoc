@@ -26,7 +26,7 @@ export function AdminCommentRow({ comment }: AdminCommentRowProps) {
           <div className="flex flex-wrap items-center gap-2">
             <span className="font-medium text-ink">{comment.author_name}</span>
             {fromAuthor ? (
-              <span className="rounded-full bg-sage/15 px-2 py-0.5 text-[11px] font-medium text-sage">
+              <span className="rounded-full bg-sage/15 px-2 py-0.5 text-[11px] font-medium text-sage-deep">
                 Tác giả
               </span>
             ) : null}
@@ -51,7 +51,7 @@ export function AdminCommentRow({ comment }: AdminCommentRowProps) {
             {postSlug ? (
               <Link
                 href={`/posts/${postSlug}`}
-                className="text-sage transition-opacity hover:opacity-80"
+                className="text-sage-deep transition-opacity hover:opacity-80"
                 target="_blank"
               >
                 {postTitle}

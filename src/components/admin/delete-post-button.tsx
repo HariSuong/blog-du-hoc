@@ -50,7 +50,7 @@ export function DeletePostButton({ postId, postTitle }: DeletePostButtonProps) {
           <div className="w-full max-w-sm rounded-lg border border-border bg-white p-6 shadow-lg">
             <h2
               id="delete-dialog-title"
-              className="font-serif text-lg text-ink"
+              className="font-serif text-lg font-bold tracking-normal text-ink"
             >
               Xóa bài viết?
             </h2>

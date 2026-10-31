@@ -7,24 +7,24 @@ type PostContentHtmlProps = {
 const proseClasses = [
   "prose prose-stone prose-lg max-w-none",
   "prose-journal",
-  "text-[17px] leading-[1.8] text-stone-800 sm:text-lg",
+  "font-sans font-normal text-[17px] leading-relaxed text-neutral-800 sm:text-lg",
   // Đoạn văn
-  "prose-p:my-6 prose-p:leading-[1.8] prose-p:text-stone-800",
+  "prose-p:my-6 prose-p:font-light prose-p:leading-relaxed prose-p:text-neutral-800",
   // Tiêu đề con
-  "prose-headings:font-serif prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-stone-900",
+  "prose-headings:font-serif prose-headings:font-bold prose-headings:tracking-normal prose-headings:text-neutral-900",
   "prose-h2:mt-10 prose-h2:mb-4 prose-h2:text-[1.55rem] prose-h2:leading-snug",
   "prose-h3:mt-8 prose-h3:mb-3 prose-h3:text-[1.25rem] prose-h3:leading-snug",
   // Ảnh
   "prose-img:mx-auto prose-img:my-8 prose-img:rounded-xl prose-img:shadow-sm",
   // Liên kết
-  "prose-a:text-sage prose-a:underline prose-a:underline-offset-[3px] prose-a:decoration-sage/40",
+  "prose-a:text-sage-deep prose-a:underline prose-a:underline-offset-[3px] prose-a:decoration-sage/40",
   // Trích dẫn
   "prose-blockquote:border-l-4 prose-blockquote:border-sage prose-blockquote:pl-4",
-  "prose-blockquote:italic prose-blockquote:text-stone-600 prose-blockquote:my-6",
+  "prose-blockquote:font-light prose-blockquote:italic prose-blockquote:leading-relaxed prose-blockquote:text-neutral-600 prose-blockquote:my-6",
   // Danh sách & strong
-  "prose-li:marker:text-stone-400",
-  "prose-strong:font-semibold prose-strong:text-stone-900",
-  "prose-hr:my-10 prose-hr:border-stone-200",
+  "prose-li:font-light prose-li:leading-relaxed prose-li:marker:text-neutral-400",
+  "prose-strong:font-semibold prose-strong:text-neutral-900",
+  "prose-hr:my-10 prose-hr:border-neutral-200",
 ].join(" ");
 
 /**

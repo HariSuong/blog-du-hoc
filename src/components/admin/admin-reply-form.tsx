@@ -70,7 +70,7 @@ export function AdminReplyForm({
         <button
           type="submit"
           disabled={pending}
-          className="inline-flex items-center gap-1.5 rounded-md bg-sage px-3 py-1.5 text-xs font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-70"
+          className="inline-flex items-center gap-1.5 rounded-md bg-cta px-3 py-1.5 text-xs font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-70"
         >
           {pending ? (
             <Loader2 className="size-3.5 animate-spin" aria-hidden />
